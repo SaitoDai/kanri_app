@@ -9,7 +9,7 @@
   </head>
     <header class="header">
       <div class="header-content">
-        <p class="header-title">管理アプリ</p>
+        <p class="header-title" onclick="location.href='{{ route('users.getLogin') }}'">管理アプリ</p>
           <div class="d-flex">
               <!-- ヘッダー左 -->
             @auth
