@@ -67,7 +67,9 @@ selectBox.addEventListener('change', function(){
   let optionId = selectBox.selectedOptions[0].value;
   const tdBuyerIds = document.querySelectorAll('.buyer_id') //table上のbuyer_idを取得(tdタグ)
   for(let tdBuyerId of tdBuyerIds){
-    if(tdBuyerId.dataset.value == optionId){  //tableのbuyer_idとセレクトボックスのbuyer_idを照合
+    console.log(optionId);
+    console.log(tdBuyerId.dataset.value);
+    if(tdBuyerId.dataset.value === optionId || optionId === 'default'){  //tableのbuyer_idとセレクトボックスのbuyer_idを照合
       tdBuyerId.parentNode.style.display = '';
     } else {
       tdBuyerId.parentNode.style.display = 'none';

@@ -117,9 +117,14 @@ class CartController extends Controller
      */
     public function update(Request $request, CartDetail $cart_detail)
     {  
-        $cart_detail->quantity = $request->input('quantity');
-        $cart_detail->update();
-        return redirect()->route('carts.edit')->with('flash_message', 'カート内を更新しました。');
+        if($request->input('quantity') > $cart_detail->itemDetail->quantity)
+        {
+          return redirect()->route('carts.edit')->with('flash_message', 'エラー：入力個数を確認してください。');
+        } else {
+          $cart_detail->quantity = $request->input('quantity');
+          $cart_detail->update();
+          return redirect()->route('carts.edit')->with('flash_message', 'カート内を更新しました。');
+        }
     }
 
     /**
@@ -130,10 +135,9 @@ class CartController extends Controller
      */
     public function delete(Cart $cart)
     {
-        echo('aaa');
         $cart_name = $cart->cartDetail->item->name; //flash_message用の変数1
         $cart_detail_name = $cart->cartDetail->itemDetail->name; //flash_message用の変数2
-        $cart->cartDetail->itemDetail->quantity += $cart->cartDetail->quantity;
+        $cart->cartDetail->itemDetail->quantity += $cart->cartDetail->quantity; //削除した個数を在庫数に戻す
         $cart->cartDetail->itemDetail->update();
         $cart->delete();
         return redirect()->route('carts.index')->with('flash_message', $cart->cartDetail->item->name . '(' . $cart->cartDetail->itemDetail->name . ') をカートから削除しました。');

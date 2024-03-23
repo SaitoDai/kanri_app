@@ -31,7 +31,6 @@
       <label class="form-label">郵便番号(ハイフンなし)</label><br>
       <div class="d-flex">
         <input class="w-15 form-control" type="text" name="postal" required/>
-        <button class="btn btn-orange address-btn" href="#" type="button">自動入力</button>
       </div>
     </div>
     <div class="mb-3">
@@ -56,5 +55,4 @@
       <button class="btn btn-orange ms-auto" type="submit">登録</button>
     </div>
   </form>
-  <script src="{{ asset('js/destinations.create.js') }}"></script>
 @endsection
