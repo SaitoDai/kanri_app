@@ -43,7 +43,7 @@
       @endif 
     </header class="lowwer-header">
     <body>
-      <main>
+      <main class="w-75 mx-auto">
         @yield('content')
       </main>
     </body>
