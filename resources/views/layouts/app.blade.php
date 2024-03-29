@@ -8,42 +8,54 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   </head>
     <header class="header">
-      <div class="header-content">
-        <p class="header-title" onclick="location.href='{{ route('users.getLogin') }}'">管理アプリ</p>
-          <div class="d-flex">
-              <!-- ヘッダー左 -->
-            @auth
-              <a href="{{ route('items.index') }}">TOP</a>
-              @if(Auth::user()->role->id == 1)
-                <a class="ms-3" href="{{ route('users.index') }}">ユーザー</a>
-              @else
-                <a class="ms-3" href="{{ route('users.show', Auth::id()) }}">プロフィール</a>
+      <div class="header-content container">
+        <div class="row">
+          <div class="col-lg-1 col-md-0"></div>
+          <div class="col-lg-10 col-md-12">
+            <p class="header-title" onclick="location.href='{{ route('users.getLogin') }}'">管理アプリ</p>
+            <div class="d-flex">
+                <!-- ヘッダー左 -->
+              @auth
+                <a href="{{ route('items.index') }}">TOP</a>
+                @if(Auth::user()->role->id == 1)
+                  <a class="ms-3" href="{{ route('users.index') }}">ユーザー</a>
+                @else
+                  <a class="ms-3" href="{{ route('users.show', Auth::id()) }}">プロフィール</a>
+                @endif
+                <a class="ms-3" href="{{ route('buyers.index') }}">注文主</a>
+                <a class="ms-3" href="{{ route('carts.index') }}">カート</a>
+                <a class="ms-3" href="{{ route('orders.index') }}">注文履歴</a>
+                <!-- ヘッダー右 -->
+                <a class="ms-auto" href="{{ route('users.logout', Auth::id()) }}">ログアウト</a>
+              @endauth
+              @if(Auth::id() != NULL && Auth::user()->role->id == 1)
+                <a class="ms-3" href="{{ route('items.create') }}">商品登録</a>
               @endif
-              <a class="ms-3" href="{{ route('buyers.index') }}">注文主</a>
-              <a class="ms-3" href="{{ route('carts.index') }}">カート</a>
-              <a class="ms-3" href="{{ route('orders.index') }}">注文履歴</a>
-              <!-- ヘッダー右 -->
-              <a class="ms-auto" href="{{ route('users.logout', Auth::id()) }}">ログアウト</a>
-            @endauth
-            @if(Auth::id() != NULL && Auth::user()->role->id == 1)
-              <a class="ms-3" href="{{ route('items.create') }}">商品登録</a>
-            @endif
-          </div>
-      </header-content>
+            </div>
+          <div class="col-lg-1 col-md-0"></div>
+        </div>
+      </div>
     </header>
     @if(Auth::id() != NULL && Auth::user()->role->id == 1)
       <div class="auth-line"></div>
     @endif
     <header class="lowwer-header mb-3">
-      @auth
-        <h5>@yield('title')</h5>
-      @endauth
-      @if(session('flash_message'))
-        <p>{{ session('flash_message') }}</P>
-      @endif 
+      <div class="header-content container w-100">
+        <div class="row">
+          <div class="col-lg-1 col-md-0"></div>
+          <div class="col-lg-10 col-md-12">
+            @auth
+              <h5>@yield('title')</h5>
+            @endauth
+            @if(session('flash_message'))
+              <p>{{ session('flash_message') }}</P>
+            @endif 
+          <div class="col-lg-1 col-md-0"></div>
+        </div>
+      </div>      
     </header class="lowwer-header">
     <body>
-      <main class="w-75 mx-auto">
+      <main>
         @yield('content')
       </main>
     </body>
