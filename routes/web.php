@@ -73,7 +73,7 @@ Route::middleware(['LoginMiddleware'])->group(function(){
 	Route::get('/buyers', [BuyerController::class, 'index'])->name('buyers.index');
 	Route::get('/buyers/create', [BuyerController::class, 'create']) ->name('buyers.create');
 	Route::post('/buyers/store', [BuyerController::class, 'store'])->name('buyers.store');
-	Route::get('/buyers={buyer}', [BuyerController::class, 'show'])->name('buyers.show');
+	Route::get('/buyer={buyer}', [BuyerController::class, 'show'])->name('buyers.show');
 	Route::get('/buyer={buyer}/edit', [BuyerController::class, 'edit'])->name('buyers.edit');
 	Route::patch('/buyer={buyer}/update', [BuyerController::class, 'update'])->name('buyers.update');
 	Route::middleware(['AdminMiddleware'])->group(function(){
