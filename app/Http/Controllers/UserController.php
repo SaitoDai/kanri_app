@@ -138,7 +138,7 @@ class UserController extends Controller
 		]); 
 			if(Auth::attempt($request->only('email', 'password')) && User::where('email', $request->input('email'))->first()->deleted_at == null) //only()により['email' => 'xxx', 'password' => 'xxx']となる
 			{	
-				if(Auth::user()->verified == false){
+				if(Auth::user()->verified != true){
 					Auth::logout();
 					return redirect()->back()->with('flash_message', 'ユーザー認証が済んでいないメールアドレスです。管理者に問い合わせてください。');
 				} else {

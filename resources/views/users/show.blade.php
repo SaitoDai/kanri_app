@@ -14,11 +14,10 @@
       </div>
     @else
       <div class="d-flex">
-        <form class="ms-auto" action="{{ route('users.softDelete', $user) }}" method="post">
-          @csrf
-          @method('delete')
-          <button class="btn btn-danger">削除</button>
-        </form>
+        <div class="ms-auto">
+          <button class="btn btn-danger modal-btn">削除</button>
+          @include('modals.userShow')
+        </div>
       </div>
     @endif
     <div>
@@ -54,4 +53,5 @@
       </div>
     @endif
   </div>
+  <script src="{{ asset('js/user.show.js') }}"></script>
 @endsection

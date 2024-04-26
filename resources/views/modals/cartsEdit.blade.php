@@ -14,7 +14,7 @@
             <img class="items-edit-img" src="{{ asset('storage/') . '/' . $cart->cartDetail->item->image_path }} " />
           @endif
         </div>    
-        <p>{{ $cart->cartDetail->item->name }}（{{ $cart->cartDetail->itemDetail->name }}）を削除します。本当によろしいですか？</p>
+        <p>{{ $cart->cartDetail->item->name }}（{{ $cart->cartDetail->itemDetail->name }}）を削除して在庫に戻します。本当によろしいですか？</p>
         <button class="btn btn-danger ms-auto">削除</button>
       </form>
     </div>

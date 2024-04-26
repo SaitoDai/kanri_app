@@ -11,6 +11,11 @@
         @csrf
         @method('post')
         <p class="mt-3 mb-5">ご利用にはログインが必要です。</p>
+        <div class="d-flex flex-column align-items-center test_info">
+          <div>テスト用アカウント</div>
+          <div>メールアドレス: test@example.com</div>
+          <div>パスワード: password</div>
+        </div>
         <div class="mb-3">
           <label class="form-label">メールアドレス</label><br>
           <input class="form-control" type="text" name="email" required/>

@@ -16,6 +16,9 @@ a:hover{
   margin: 0;
 }
 
+.test_info{
+  color: red;
+}
 
 .header-content{
   padding: 0 0;

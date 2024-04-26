@@ -39,29 +39,33 @@
       <button class="btn btn-orange" onclick="location.href='{{ route('buyers.edit', $buyer)}} '">編集</button>
     </div>
   </div>
-  <div class="mt-5">
-    <p>{{ $buyer->name }}の納品先一覧</p>
-    @if(!empty($buyer->destinations[0]))
-      <table class="table">
-        <tbody>
-          <tr>
-            <th></th>
-            <th>名前</th>
-            <th class="col-5">備考</th>
-            <th class="w-15">前回更新日時</th>
-          </tr>
-          @foreach($buyer->destinations as $destination)
-            <tr>
-              <td><button class="btn btn-orange" onclick="location.href='{{ route('destinations.show', $destination->id) }}'">詳細</button></td>
-              <td>{{ $destination->name }}</td>
-              <td>{{ $destination->remark }}</td>
-              <td>{{ $destination->updated_at }}</td>
-            </tr>
-          @endforeach
-        </tbody>
-      </table>
-    @else
-      <div class="text-center py-3 w-100 bg-body-secondary rounded"><b>登録済みの納品先はありません。</b></div>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-8">
+        <p>{{ $buyer->name }}の納品先一覧</p>
+        @if(!empty($buyer->destinations[0]))
+          <table class="table">
+            <tbody>
+              <tr>
+                <th></th>
+                <th>名前</th>
+                <th class="col-5">備考</th>
+                <th class="w-15">前回更新日時</th>
+              </tr>
+              @foreach($buyer->destinations as $destination)
+                <tr>
+                  <td><button class="btn btn-orange" onclick="location.href='{{ route('destinations.show', $destination->id) }}'">詳細</button></td>
+                  <td>{{ $destination->name }}</td>
+                  <td>{{ $destination->remark }}</td>
+                  <td>{{ $destination->updated_at }}</td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+        @else
+      </div>
+    </div>
+    <div class="text-center py-3 w-100 bg-body-secondary rounded"><b>登録済みの納品先はありません。</b></div>
     @endif
     <div class="d-flex">
       <div class="ms-auto">
