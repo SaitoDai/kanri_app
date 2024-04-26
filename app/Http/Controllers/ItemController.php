@@ -62,7 +62,7 @@ class ItemController extends Controller
             $file = $request->file('image')->storeAs('', $fileName);
             $item->image_path = $fileName;
             }
-        //dd($request->file('image'), $item->image_path);
+        dd($request->file('image'), $item->image_path);
         $item->save();
         return redirect()->route('items.show', $item)->with('flash_message', '商品を登録しました。');
     }
