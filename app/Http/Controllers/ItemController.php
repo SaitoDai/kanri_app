@@ -106,8 +106,10 @@ class ItemController extends Controller
         $item->remark = $request->input('remark');
 
         if($request->file('image_path') != NULL){
-        $file = $request->file('image_path')->storeAs('', $request->file('image_path')->hashName());
-        $item->image_path = $file;
+        $fileName = $request->file('image_path')->getClientOriginalName();
+        $file = $request->file('image_path')->storeAs('', $fileName);
+        $item->image_path = $fileName;
+        //dd($request->file('image_path'), $item->image_path);
         }
 
         $item->update();
