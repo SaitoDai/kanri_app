@@ -108,6 +108,7 @@ class ItemController extends Controller
         if($request->file('image_path') != NULL){
         $file = $request->file('image_path')->store('');
         $item->image_path = $file;
+        dd($file, $item->image_path);
         }
 
         $item->update();
