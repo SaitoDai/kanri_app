@@ -57,11 +57,12 @@ class ItemController extends Controller
         $item->category_id = $request->input('category_id');
         $item->remark = $request->input('remark');
 
-        if($request->file('image_path') != NULL){
-            $file = $request->file('image_path')->store();
-            $item->image_path = $file;
-        }
-
+        if($request->file('image') != NULL){
+            $fileName = $request->file('image')->getClientOriginalName();
+            $file = $request->file('image')->storeAs('', $fileName);
+            $item->image_path = $fileName;
+            }
+        //dd($request->file('image'), $item->image_path);
         $item->save();
         return redirect()->route('items.show', $item)->with('flash_message', '商品を登録しました。');
     }
@@ -105,11 +106,11 @@ class ItemController extends Controller
         $item->category_id = $request->input('category_id');
         $item->remark = $request->input('remark');
 
-        if($request->file('image_path') != NULL){
-        $fileName = $request->file('image_path')->getClientOriginalName();
-        $file = $request->file('image_path')->storeAs('', $fileName);
+        if($request->file('image') != NULL){
+        $fileName = $request->file('image')->getClientOriginalName();
+        $file = $request->file('image')->storeAs('', $fileName);
         $item->image_path = $fileName;
-        //dd($request->file('image_path'), $item->image_path);
+        //dd($request->file('image'), $item->image_path);
         }
 
         $item->update();

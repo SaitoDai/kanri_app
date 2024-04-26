@@ -5,7 +5,7 @@
 @section('content')
   <div class="mt-5 w-50 mx-auto">
     <p>新しく商品を登録します。</p>
-    <form action="{{ route('items.store') }}" method="post">
+    <form action="{{ route('items.store') }}" method="post" enctype="multipart/form-data">
       @csrf
       @method('post')
       <div class="mt-3">
@@ -35,6 +35,11 @@
           @endif
         </div>
       </div>
+      <div class="mt-3 d-flex flex-column">
+        @include('modals.itemsCreate')
+        <label>商品イメージ</label>
+        <img class="modal-btn items-edit-img" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" /><br>
+      </div>
       <div class="mt-3">
         <label class="form-label">備考</label><br>
         <input class="form-control" type="text" name="remark"/>
@@ -44,4 +49,5 @@
       </div>
     </form>
   </div>
+  <script src="{{ asset('js/items.create.js') }}"></script>
 @endsection
