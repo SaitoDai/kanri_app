@@ -12,7 +12,12 @@
         <div class="row">
           <div class="col-lg-1 col-md-0"></div>
           <div class="col-lg-10 col-md-12">
+            <div class="d-flex">
             <p class="header-title" onclick="location.href='{{ route('users.getLogin') }}'">管理アプリ</p>
+              @if(Auth::id() != NULL)
+                <div class="mt-2 ms-auto">{{ Auth::user()->name }}</div>
+              @endif
+            </div>
             <div class="d-flex">
                 <!-- ヘッダー左 -->
               @auth

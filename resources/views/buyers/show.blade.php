@@ -39,8 +39,8 @@
       <button class="btn btn-orange" onclick="location.href='{{ route('buyers.edit', $buyer)}} '">編集</button>
     </div>
   </div>
-  <div class="container mt-5">
-    <div class="row">
+  <div class="container mt-5 mx-auto mb-5">
+    <div class="row justify-content-center">
       <div class="col-8">
         <p>{{ $buyer->name }}の納品先一覧</p>
         @if(!empty($buyer->destinations[0]))

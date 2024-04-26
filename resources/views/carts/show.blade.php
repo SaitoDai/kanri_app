@@ -7,7 +7,8 @@
 
 
 @section('content')
-  <div class="mt-5">
+<div class="container">
+  <div class="row mt-5">
     @if($buyer->carts->count() === 0) {{-- カート内に商品がない場合 --}}
       <p>カート内は空です。</p>
       <div class="d-flex flex-column ">
@@ -99,6 +100,7 @@
           </div>
         </form>
     @endif
+  </div>
 </div>
 <script src="{{ asset('js/carts.show.js') }}"></script>
 @endsection
