@@ -11,12 +11,17 @@
         @csrf
         @method('post')
         <p class="mt-3 mb-5">ご利用にはログインが必要です。</p>
+        <div class="mt-2 mb-5 text-center">
+          <a href="{{ route('users.readme') }}"><u>>はじめにお読みください</u></a>
+        </div>
         <div class="container test_info">
-          <div class="row text-start justify-content-center">
+          <div class="row mx-auto justify-content-center">
             <div class="col-4">
-              <div>テスト用アカウント</div>
-              <div>メールアドレス：test@example.com</div>
-              <div>パスワード：password</div>
+              <div class="text-center">&emsp;＜テスト用アカウント＞</div>
+              <div class="d-inline-block">
+                &emsp;メールアドレス：test@example.com<br>
+                &emsp;パスワード：password
+              </div>
             </div>
           </div>
         </div>

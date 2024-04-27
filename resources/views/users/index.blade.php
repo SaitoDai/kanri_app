@@ -10,7 +10,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-1 col-md-0"></div>
-    <div class="col-lg-10 col-md-12">
+    <div class="col-lg-10 col-md-12 mb-5">
       <div class="mt-5">
         <table class="table mx-auto user-table">
           <tbody>

@@ -5,7 +5,7 @@
 
 
 @section('content')
-  <div class="w-50 mx-auto mt-5 d-flex">
+  <div class="w-50 mx-auto mt-5 mb-5 d-flex">
     <div class="w-50 ms-5 ps-5">
       <div class="mb-3">
         <label class="form-label">名前</label><br>

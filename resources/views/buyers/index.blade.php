@@ -6,7 +6,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-1 col-md-0"></div>
-    <div class="col-lg-10 col-md-12">
+    <div class="col-lg-10 col-md-12 mb-5">
       <section>
         <div class="mt-5 d-flex align-items-center w-25 mx-auto">
           <input class="form-control search-box" type="text"  placeholder="ここに入力して検索"/>

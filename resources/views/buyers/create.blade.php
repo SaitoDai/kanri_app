@@ -8,7 +8,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-1 col-md-0"></div>
-    <div class="col-lg-10 col-md-12">
+    <div class="col-lg-10 col-md-12 mt-5 mb-5">
       <p>新しく注文主を登録します。</p>
       <form action="{{ route('buyers.store') }}" method="post">
         @csrf

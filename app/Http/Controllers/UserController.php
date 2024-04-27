@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
+	public function readme(){
+		return view('users.readme');
+	}
+
+
 	/**
 	 * Display a listing of the resource.
 	 *

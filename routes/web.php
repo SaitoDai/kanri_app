@@ -24,6 +24,7 @@ use App\Http\Controllers\MailController;
 |
 */
 
+Route::get('readme', [UserController::class, 'readme'])->name('users.readme');
 Route::get('/', function () {
     return view('users.getLogin');
 })->name('users.getLogin');
