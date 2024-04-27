@@ -25,7 +25,7 @@
               @foreach($buyers as $buyer)
                 @if($buyer->deleted_at == false)
                   <tr data-buyer="buyer">
-                    <td><button class="btn btn-orange" onclick="location.href='../public/buyers={{$buyer->id}}'">詳細</button></td>
+                    <td><button class="btn btn-orange" onclick="location.href='{{ route('buyers.show', $buyer) }}'">詳細</button></td>
                     <td>{{$buyer->name}}</td>
                     <td>{{$buyer->remark}}</td>
                     <td>{{$buyer->count}}</td>
